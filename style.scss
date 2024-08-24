@@ -1,0 +1,147 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  background: url("./images/bg-desktop.svg"), hsl(257, 40%, 49%);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.container {
+  max-width: 144rem;
+  height: 100vh;
+  padding: 5rem;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  // grid-template-rows: 20rem 1fr;
+  column-gap: 3rem;
+
+  @media only screen and (max-width: 24em) {
+    height: auto;
+    background: url("./images/bg-mobile.svg"), hsl(257, 40%, 49%);
+    background-size: contain;
+    background-repeat: no-repeat;
+    row-gap: 2rem;
+  }
+}
+
+.logo {
+  @media only screen and (max-width: 24em) {
+    max-width: 50%;
+    margin-bottom: 5rem;
+  }
+}
+
+.logo-2 {
+  grid-column: 1 / 2;
+  max-width: 100%;
+}
+
+.content {
+  max-width: 100%;
+  padding: 3.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: flex-start;
+
+  position: relative;
+
+  &__heading,
+  &__parag {
+    color: #fff;
+  }
+
+  &__heading {
+    font-size: 3.5rem;
+    font-family: "Poppins", sans-serif;
+
+    @media only screen and (max-width: 24em) {
+      text-align: center;
+      font-size: 2rem;
+    }
+  }
+
+  &__parag {
+    font-size: 1.6rem;
+    font-weight: 300;
+    line-height: 1.5;
+    font-family: "Open Sans", sans-serif;
+
+    @media only screen and (max-width: 24em) {
+      font-size: 1.3rem;
+      text-align: center;
+    }
+  }
+
+  &__btn {
+    padding: 1.5rem 5rem;
+    border: none;
+    border-radius: 2.5rem;
+    font-size: 1.6rem;
+    color: gray;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    cursor: pointer;
+
+    @media only screen and (max-width: 24em) {
+      letter-spacing: -0.1px;
+      font-size: 1.4rem;
+      padding: 1rem 7rem;
+      margin: 0 auto;
+    }
+
+    &:hover {
+      background-color: hsl(300, 69%, 71%);
+      color: #fff;
+    }
+  }
+
+  .icons {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    gap: 1rem;
+
+    @media only screen and (max-width: 24em) {
+      position: static; /* remove absolute positioning */
+      display: flex;
+      justify-content: center; /* center the icons horizontally */
+      margin: 2.5rem auto 0 auto; /* center the icons horizontally */
+    }
+
+    &__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      @media only screen and (max-width: 24em) {
+        padding: 1rem;
+      }
+
+      color: #fff;
+      padding: 1.5rem;
+      font-size: 1.5rem;
+      border-radius: 50%;
+      border: 1px solid #fff;
+
+      &:hover {
+        border: 1px solid hsl(300, 69%, 71%);
+        color: hsl(300, 69%, 71%);
+      }
+    }
+    cursor: pointer;
+  }
+}
